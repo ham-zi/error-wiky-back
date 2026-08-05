@@ -1,0 +1,37 @@
+# 환경변수
+.env
+.env.*
+!.env.example
+
+# Spring 설정 파일
+application.yml
+application-*.yml
+application.yaml
+application-*.yaml
+
+# Gradle
+.gradle/
+.gradle-wrapper/
+build/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse / STS
+.settings/
+.project
+.classpath
+.factorypath
+
+# 로그
+*.log
+logs/
+
+# 운영체제
+.DS_Store
+Thumbs.db
+
+# 임시 파일
+*.tmp
+*.swp
