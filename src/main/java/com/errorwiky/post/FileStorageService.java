@@ -27,8 +27,11 @@ public class FileStorageService {
             String original=Optional.ofNullable(file.getOriginalFilename()).orElse("file");
             String safe=Paths.get(original).getFileName().toString().replaceAll("[^a-zA-Z0-9가-힣._-]","_");
             String stored=UUID.randomUUID()+"_"+safe;
-            try{ Files.copy(file.getInputStream(),root.resolve(stored),StandardCopyOption.REPLACE_EXISTING); }
-            catch(IOException e){ throw new BusinessException(HttpStatus.INTERNAL_SERVER_ERROR,"첨부파일 저장에 실패했습니다."); }
+            try{ 
+            	Files.copy(file.getInputStream(),root.resolve(stored),StandardCopyOption.REPLACE_EXISTING);
+            } catch(IOException e){ 
+            	throw new BusinessException(HttpStatus.INTERNAL_SERVER_ERROR,"첨부파일 저장에 실패했습니다.");
+            }
             result.add(new AttachmentEntity(post,safe,stored,file.getContentType(),file.getSize()));
         }
         return result;

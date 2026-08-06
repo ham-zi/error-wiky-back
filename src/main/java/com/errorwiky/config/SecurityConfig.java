@@ -45,7 +45,7 @@ public class SecurityConfig {
             @Qualifier("corsConfigurationSource") CorsConfigurationSource cors,
             CustomOidcUserService oidcUserService,
             ObjectMapper objectMapper,
-            @Value("${app.frontend-url:http://localhost:5173}") String frontendUrl
+            @Value("${app.frontend-url:https://errorwiky.shop}") String frontendUrl
     ) throws Exception {
         http
             .cors(corsSpec -> corsSpec.configurationSource(cors))
@@ -73,7 +73,7 @@ public class SecurityConfig {
 
     @Bean("corsConfigurationSource")
     CorsConfigurationSource corsConfigurationSource(
-            @Value("${app.frontend-url:http://localhost:5173}") String frontendUrl) {
+            @Value("${app.frontend-url:https://errorwiky.shop}") String frontendUrl) {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(frontendUrl, "https://13.209.117.56", "http://13.209.117.56", "https://errorwiky.shop", "http://errorwiky.shop"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
