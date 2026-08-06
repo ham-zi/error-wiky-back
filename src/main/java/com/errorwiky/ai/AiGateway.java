@@ -1,2 +1,5 @@
 package com.errorwiky.ai;
-public interface AiGateway { String recommend(String prompt); }
+
+public interface AiGateway {
+	String recommend(String prompt);
+}
