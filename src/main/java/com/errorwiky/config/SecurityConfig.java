@@ -65,7 +65,7 @@ public class SecurityConfig {
                 }))
             .oauth2Login(oauth -> oauth
                 .userInfoEndpoint(info -> info.oidcUserService(oidcUserService))
-                .defaultSuccessUrl(frontendUrl + "/oauth2/success", true)
+                .defaultSuccessUrl(frontendUrl + "/auth/oauth2/success", true)
                 .failureUrl(frontendUrl + "/auth/login?oauthError=true"))
             .sessionManagement(Customizer.withDefaults());
         return http.build();
